@@ -1,5 +1,5 @@
 <template>
-  <HomeComponents msg="hello world" />
+  <HomeComponents />
 </template>
 
 <script>

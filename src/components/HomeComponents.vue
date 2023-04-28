@@ -1,31 +1,30 @@
 <template>
-  <h1>name:{{ getName("peter") }}</h1>
-  <h1>name2:{{ getName("crush") }}</h1>
-  <h2>All Data:{{ getData().name }}</h2>
-  <h2>All Data:{{ getData().email }}</h2>
+  <h1 v-on:mousemove="getConsole()">Home Components</h1>
+  <button v-on:click="getData('Button 1 CLicked')">Click Me</button>
+  <button @click="getData('Button 2 CLicked')">Click Me</button>
+  <button @dblclick="getData('Button dubble CLicked')">dubble Click Me</button>
+  <h2>{{ count }}</h2>
+  <button v-on:click="getIncreament()">increament</button>
+  <button v-on:click="count--">increament</button>
 </template>
 
 <script>
 export default {
   name: "HomeComponents",
-  props: {
-    msg: String,
-  },
   data() {
     return {
-      email: "dev@gmail11.com",
-      mobile: "32573776",
+      count: 0,
     };
   },
   methods: {
-    getName(a) {
-      return a;
+    getData(data) {
+      alert(data);
     },
-    getData() {
-      return {
-        name: "dev",
-        email: this.email,
-      };
+    getConsole() {
+      console.log("mouse move");
+    },
+    getIncreament() {
+      this.count = this.count + 1;
     },
   },
 };
@@ -33,6 +32,6 @@ export default {
 
 <style scoped>
 h1 {
-  color: orange;
+  color: purple;
 }
 </style>
