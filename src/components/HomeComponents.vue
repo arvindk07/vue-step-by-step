@@ -1,10 +1,8 @@
 <template>
-  <h1>home page {{ msg }}</h1>
-  <h2>{{ "hello".length }}</h2>
-  <p>{{ email }}</p>
-  <p>{{ (mobile = 9999) }}</p>
-  <p>{{ mobile == 9999 }}</p>
-  <h2>{{ getName("webdev") }}</h2>
+  <h1>name:{{ getName("peter") }}</h1>
+  <h1>name2:{{ getName("crush") }}</h1>
+  <h2>All Data:{{ getData().name }}</h2>
+  <h2>All Data:{{ getData().email }}</h2>
 </template>
 
 <script>
@@ -15,12 +13,20 @@ export default {
   },
   data() {
     return {
-      email: "dev@gmail.com",
+      email: "dev@gmail11.com",
       mobile: "32573776",
-      getName: function (a) {
-        return a;
-      },
     };
+  },
+  methods: {
+    getName(a) {
+      return a;
+    },
+    getData() {
+      return {
+        name: "dev",
+        email: this.email,
+      };
+    },
   },
 };
 </script>
