@@ -1,17 +1,26 @@
 <template>
-  <h1>Two way binding</h1>
-  <input type="text" v-model="count" />
-  <h2>{{ count }}</h2>
+  <h1>Get Input Field Value</h1>
+  <input type="text" placeholder="Enter Email" v-model="email" /> <br />
+  <br />
+  <input type="password" placeholder="Password" v-model="password" /><br />
+  <br />
+  <button v-on:click="getData()" type="button">get values</button>
 </template>
 
 <script>
 export default {
   name: "HomeComponents",
-
   data() {
     return {
-      count: 10,
+      email: null,
+      password: null,
     };
+  },
+
+  methods: {
+    getData() {
+      console.log(this.email, this.password);
+    },
   },
 };
 </script>
