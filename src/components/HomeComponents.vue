@@ -1,7 +1,17 @@
 <template>
-  <h1 v-if="show">if else Conditions</h1>
-  <h1 v-else>else Conditions</h1>
-  <button @click="show = !show">toggle</button>
+  <h1>for loop</h1>
+  <ul>
+    <li>
+      {{ technology }}
+    </li>
+    <li v-for="item in technology" :key="item">{{ item }}</li>
+  </ul>
+  <br />
+  <ul>
+    <li v-for="item in users" :key="item.name">
+      Name:{{ item.name }} and Email: {{ item.email }}
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -9,7 +19,12 @@ export default {
   name: "HomeComponents",
   data() {
     return {
-      show: false,
+      technology: ["html", "react", "vue", "nuxt"],
+      users: [
+        { name: "dev", email: "dev@gmail.com" },
+        { name: "kyle", email: "kyle@gmail.com" },
+        { name: "brad", email: "brad@gmail.com" },
+      ],
     };
   },
   methods: {},
