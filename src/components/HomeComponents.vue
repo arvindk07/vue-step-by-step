@@ -1,33 +1,26 @@
 <template>
-  <h1>for loop</h1>
-  <ul>
-    <li>
-      {{ technology }}
-    </li>
-    <li v-for="item in technology" :key="item">{{ item }}</li>
-  </ul>
-  <br />
-  <ul>
-    <li v-for="item in users" :key="item.name">
-      Name:{{ item.name }} and Email: {{ item.email }}
-    </li>
-  </ul>
+  <h1>Pass Data to child component</h1>
+  <ChildComponents name="dev" :user="user" :getData="getData" />
 </template>
 
 <script>
+import ChildComponents from "./ChildComponents.vue";
 export default {
   name: "HomeComponents",
+  components: {
+    ChildComponents,
+  },
   data() {
     return {
-      technology: ["html", "react", "vue", "nuxt"],
-      users: [
-        { name: "dev", email: "dev@gmail.com" },
-        { name: "kyle", email: "kyle@gmail.com" },
-        { name: "brad", email: "brad@gmail.com" },
-      ],
+      user: { name: "peter", email: "peter@test.com" },
     };
   },
-  methods: {},
+
+  methods: {
+    getData() {
+      console.warn("parent function called");
+    },
+  },
 };
 </script>
 
