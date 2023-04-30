@@ -1,20 +1,25 @@
 <template>
-  <h1>Html Binding</h1>
-  <h2>{{ text }}</h2>
-  <div v-html="tag"></div>
-  <div v-html="tag2"></div>
+  <h1>class Binding</h1>
+  <h2 :class="applyStyle">Home Components</h2>
+  <button v-on:click="colorfull = !colorfull">Aplly Style</button>
 </template>
 
 <script>
 export default {
   name: "HomeComponents",
-  components: {},
   data() {
     return {
-      text: "Arvind Dev",
-      tag: "<h1>Arvind Hacker</h1>",
-      tag2: "<h1>Kyle is my favourite Youtuber</h1>",
+      colorfull: true,
     };
+  },
+  computed: {
+    applyStyle() {
+      return {
+        green: this.colorfull,
+        err: true,
+        otherclass: true,
+      };
+    },
   },
 };
 </script>
@@ -23,10 +28,14 @@ export default {
 h1 {
   color: purple;
 }
-ul {
-  list-style: none;
+.green {
+  background-color: green;
+  padding: 10px;
 }
-li {
-  margin: 20px;
+.otherclass {
+  font-size: 50px;
+}
+.err {
+  color: purple;
 }
 </style>
