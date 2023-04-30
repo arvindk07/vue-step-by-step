@@ -1,24 +1,35 @@
 <template>
-  <h1>Pass Data to child component</h1>
-  <ChildComponents name="dev" :user="user" :getData="getData" />
+  <h1>ReUsable Components</h1>
+  <ul>
+    <li v-for="item in users" :key="item.name">
+      <ReusableComponents :data="item" :getData="getData" />
+    </li>
+  </ul>
 </template>
 
 <script>
-import ChildComponents from "./ChildComponents.vue";
+import ReusableComponents from "./ReusableComponents.vue";
 export default {
   name: "HomeComponents",
   components: {
-    ChildComponents,
+    ReusableComponents,
   },
+
   data() {
     return {
-      user: { name: "peter", email: "peter@test.com" },
+      users: [
+        { name: "peter", email: "peter@test.com" },
+        { name: "sam", email: "sam@test.com" },
+        { name: "brad", email: "brad@test.com" },
+        { name: "traversy", email: "traversy@test.com" },
+        { name: "john", email: "john@test.com" },
+      ],
     };
   },
 
   methods: {
-    getData() {
-      console.warn("parent function called");
+    getData(name) {
+      alert(name);
     },
   },
 };
@@ -27,5 +38,11 @@ export default {
 <style scoped>
 h1 {
   color: purple;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin: 20px;
 }
 </style>
