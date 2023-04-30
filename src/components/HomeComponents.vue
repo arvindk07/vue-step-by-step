@@ -13,6 +13,39 @@
     />
     <br />
     <br />
+    <select v-model="form.country">
+      <option>India</option>
+      <option>USA</option>
+      <option>Astrailiya</option>
+    </select>
+    <br />
+    <br />
+    <h3>Technology</h3>
+    <input type="checkbox" value="react" v-model="form.technology" />
+    <label> React </label>
+    <br />
+    <br />
+    <input type="checkbox" value="vue" v-model="form.technology" />
+    <label> Vue </label>
+    <br />
+    <br />
+    <input type="checkbox" value="next" v-model="form.technology" />
+    <label> Next </label>
+    <br />
+    <br />
+    <input type="checkbox" value="nuxt" v-model="form.technology" />
+    <label> Nuxt </label>
+    <br />
+    <br />
+    <input type="radio" value="male" name="gender" v-model="form.gender" />
+    <label> Male </label>
+    <br />
+    <br />
+    <input type="radio" value="female" name="gender" v-model="form.gender" />
+    <label> Female </label>
+    <br />
+    <br />
+
     <button v-on:click="login" type="button">Login</button>
   </form>
 </template>
@@ -25,6 +58,9 @@ export default {
       form: {
         email: "",
         password: "",
+        country: "",
+        technology: [],
+        gender: "",
       },
     };
   },
