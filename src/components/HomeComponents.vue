@@ -1,33 +1,31 @@
 <template>
-  <h1>Props</h1>
-  <StudentVue name="dev" />
-  <TeacherVue name="Khan Sir" subject="GS" />
+  <h1>Send Data child to parent</h1>
+  {{ childUser }}
+  <UserVue :getUser="getUserName" />
 </template>
 
 <script>
-import StudentVue from "./Student.vue";
-import TeacherVue from "./Teacher.vue";
+import UserVue from "./User.vue";
 export default {
   name: "HomeComponents",
+  data() {
+    return {
+      childUser: "",
+    };
+  },
   components: {
-    StudentVue,
-    TeacherVue,
+    UserVue,
+  },
+  methods: {
+    getUserName(name) {
+      this.childUser = name;
+    },
   },
 };
 </script>
 
 <style scoped>
 h1 {
-  color: purple;
-}
-.green {
-  background-color: green;
-  padding: 10px;
-}
-.otherclass {
-  font-size: 50px;
-}
-.err {
   color: purple;
 }
 </style>
