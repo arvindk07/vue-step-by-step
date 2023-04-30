@@ -1,24 +1,18 @@
 <template>
-  <h1>Send Data child to parent</h1>
-  {{ childUser }}
-  <UserVue :getUser="getUserName" />
+  <h1>Ref</h1>
+  <input type="text" ref="input" />
+  <button v-on:click="getData">Click me</button>
 </template>
 
 <script>
-import UserVue from "./User.vue";
 export default {
   name: "HomeComponents",
-  data() {
-    return {
-      childUser: "",
-    };
-  },
-  components: {
-    UserVue,
-  },
   methods: {
-    getUserName(name) {
-      this.childUser = name;
+    getData() {
+      this.$refs.input.focus();
+      let val = this.$refs.input.value;
+      console.log(val);
+      this.$refs.input.style.color = "red";
     },
   },
 };
