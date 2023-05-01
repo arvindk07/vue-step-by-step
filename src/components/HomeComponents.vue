@@ -1,14 +1,43 @@
 <template>
-  <h1>Non Props</h1>
-  <ChildVue data="data" id="cmp" />
+  <h1>Computed Property</h1>
+  <h2>Normal Method</h2>
+  {{ doller * rupeeVal - discount }}
+  {{ doller * rupeeVal - discount }}
+  {{ doller * rupeeVal - discount }}
+  {{ doller * rupeeVal - discount }}
+
+  <h2>Computed Property</h2>
+  {{ getResults }}
+  {{ getResults }}
+  {{ getResults }}
+  {{ getResults }}
+
+  <h2>Using Method</h2>
+  {{ getResultsMethod() }}
 </template>
 
 <script>
-import ChildVue from "./ChildVue.vue";
 export default {
   name: "HomeComponents",
-  components: {
-    ChildVue,
+  data() {
+    return {
+      doller: 100,
+      rupeeVal: 82,
+      discount: 10,
+    };
+  },
+  // using methods
+  methods: {
+    getResultsMethod() {
+      return this.doller * this.rupeeVal - this.discount;
+    },
+  },
+
+  // computed property
+  computed: {
+    getResults() {
+      return this.doller * this.rupeeVal - this.discount;
+    },
   },
 };
 </script>
