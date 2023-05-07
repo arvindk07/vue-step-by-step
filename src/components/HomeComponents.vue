@@ -1,6 +1,8 @@
 <template>
-  <h1>Before Created and created (life cycle method)</h1>
-  <h2>{{ name }}</h2>
+  <h1>
+    Before Mount and Mounted (life cycle method)
+    <h2>{{ name }}</h2>
+  </h1>
 </template>
 
 <script>
@@ -8,18 +10,15 @@ export default {
   name: "HomeComponents",
 
   data() {
-    console.warn("created");
     return {
       name: "Dev",
     };
   },
-
-  beforeCreate() {
-    alert("before created");
+  beforeMount() {
+    console.warn("beforeMount", this.$el);
   },
-  created() {
-    this.name = "hello dev";
-    alert("created");
+  mounted() {
+    console.warn("Mounted", this.$el);
   },
 };
 </script>
