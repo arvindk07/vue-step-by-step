@@ -1,7 +1,8 @@
 <template>
   <h1>
-    Before Mount and Mounted (life cycle method)
-    <h2>{{ name }}</h2>
+    Before Update and Updated (life cycle method)
+    <h2 ref="count">{{ counter }}</h2>
+    <button @click="counter = counter + 1">Update Count</button>
   </h1>
 </template>
 
@@ -11,14 +12,14 @@ export default {
 
   data() {
     return {
-      name: "Dev",
+      counter: 0,
     };
   },
-  beforeMount() {
-    console.warn("beforeMount", this.$el);
+  beforeUpdate() {
+    console.warn("beforeUpdate", this.$refs["count"].textContent);
   },
-  mounted() {
-    console.warn("Mounted", this.$el);
+  updated() {
+    console.warn("update", this.$refs["count"].textContent);
   },
 };
 </script>
