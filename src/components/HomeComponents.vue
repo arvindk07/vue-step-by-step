@@ -1,18 +1,25 @@
 <template>
   <h1>Slot</h1>
   <ChildVue>
-    <h2>Slot 1</h2>
+    <template v-slot:header>
+      <h1>Peter</h1>
+    </template>
+    <template v-slot:content>
+      <p>Vue Products</p>
+    </template>
+    <template v-slot:footer>
+      <button>Buy Now</button>
+    </template>
   </ChildVue>
   <ChildVue>
-    <a href="#">Slot 2</a>
+    <template v-slot:header>
+      <h1>Peter England</h1>
+    </template>
+    <template v-slot:content>
+      <p>Vue Products</p>
+    </template>
+    <template v-slot:footer> </template>
   </ChildVue>
-  <ChildVue>
-    <img
-      src="https://gumlet.assettype.com/film-companion%2Fimport%2Fwp-content%2Fuploads%2F2021%2F08%2FLead_Rashmika-Mandanna3.jpg?auto=format%2Ccompress&fit=max&w=1200"
-      alt="IMg"
-    />
-  </ChildVue>
-  <ChildVue>default Value</ChildVue>
 </template>
 
 <script>
