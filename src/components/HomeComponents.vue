@@ -1,25 +1,27 @@
 <template>
-  <h1>Watcher</h1>
-  <h1>{{ count }}</h1>
-  <button v-on:click="count = count + 1">+</button>
-  <button v-on:click="count = count - 1">-</button>
+  <h1>Slot</h1>
+  <ChildVue>
+    <h2>Slot 1</h2>
+  </ChildVue>
+  <ChildVue>
+    <a href="#">Slot 2</a>
+  </ChildVue>
+  <ChildVue>
+    <img
+      src="https://gumlet.assettype.com/film-companion%2Fimport%2Fwp-content%2Fuploads%2F2021%2F08%2FLead_Rashmika-Mandanna3.jpg?auto=format%2Ccompress&fit=max&w=1200"
+      alt="IMg"
+    />
+  </ChildVue>
+  <ChildVue>default Value</ChildVue>
 </template>
 
 <script>
+import ChildVue from "./Child.vue";
+
 export default {
   name: "HomeComponents",
-  data() {
-    return {
-      count: 0,
-    };
-  },
-  watch: {
-    count(val, prev) {
-      if (val > 5 && val > prev) {
-        // alert("stop counting");
-        this.count = 0;
-      }
-    },
+  components: {
+    ChildVue,
   },
 };
 </script>
