@@ -1,8 +1,8 @@
 <template>
-  <h2>User Components</h2>
+  <h2>Login Components</h2>
 </template>
 <script>
 export default {
-  name: "UserCompo",
+  name: "LoginPage",
 };
 </script>

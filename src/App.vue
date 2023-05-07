@@ -1,15 +1,15 @@
 <template>
-  <HomeComponents />
+  <router-link to="/">Home</router-link> <br />
+  <router-link to="/profile">Profile</router-link><br />
+  <router-link to="/login">Login</router-link><br />
+  <router-link to="/user">User</router-link><br />
+  <router-view></router-view>
 </template>
 
 <script>
-import HomeComponents from "./components/HomeComponents.vue";
-
 export default {
   name: "App",
-  components: {
-    HomeComponents,
-  },
+  components: {},
 };
 </script>
 
