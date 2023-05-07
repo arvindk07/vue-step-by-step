@@ -1,20 +1,25 @@
 <template>
-  <h1>Teleport</h1>
-  <Teleport to="#footer">
-    <FooterVue />
-  </Teleport>
+  <h1>Before Created and created (life cycle method)</h1>
+  <h2>{{ name }}</h2>
 </template>
 
 <script>
-import FooterVue from "./Footer.vue";
 export default {
   name: "HomeComponents",
-  components: {
-    FooterVue,
-  },
 
   data() {
-    return {};
+    console.warn("created");
+    return {
+      name: "Dev",
+    };
+  },
+
+  beforeCreate() {
+    alert("before created");
+  },
+  created() {
+    this.name = "hello dev";
+    alert("created");
   },
 };
 </script>
