@@ -1,25 +1,22 @@
 <template>
-  <h1>
-    Before Update and Updated (life cycle method)
-    <h2 ref="count">{{ counter }}</h2>
-    <button @click="counter = counter + 1">Update Count</button>
-  </h1>
+  <h1>Before UnMount and UnMounted (life cycle method)</h1>
+  <button @click="show = !show">Toggle</button>
+  <UserCompo v-if="show" />
 </template>
 
 <script>
+import UserCompo from "./UserCompo.vue";
 export default {
   name: "HomeComponents",
 
+  components: {
+    UserCompo,
+  },
+
   data() {
     return {
-      counter: 0,
+      show: true,
     };
-  },
-  beforeUpdate() {
-    console.warn("beforeUpdate", this.$refs["count"].textContent);
-  },
-  updated() {
-    console.warn("update", this.$refs["count"].textContent);
   },
 };
 </script>
