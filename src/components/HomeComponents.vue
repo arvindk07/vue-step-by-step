@@ -1,34 +1,27 @@
 <template>
-  <h1>Slot</h1>
-  <ChildVue>
-    <template v-slot:header>
-      <h1>Peter</h1>
-    </template>
-    <template v-slot:content>
-      <p>Vue Products</p>
-    </template>
-    <template v-slot:footer>
-      <button>Buy Now</button>
-    </template>
-  </ChildVue>
-  <ChildVue>
-    <template v-slot:header>
-      <h1>Peter England</h1>
-    </template>
-    <template v-slot:content>
-      <p>Vue Products</p>
-    </template>
-    <template v-slot:footer> </template>
-  </ChildVue>
+  <h1>Dynamic Components</h1>
+  <button @click="tab = 'JavaVue'">Load Java</button>
+  <button @click="tab = 'ReactVue'">Load React</button>
+  <button @click="tab = 'NodeVue'">Load Node</button>
+  <component :is="tab" />
 </template>
 
 <script>
-import ChildVue from "./Child.vue";
-
+import ReactVue from "./React.vue";
+import NodeVue from "./Node.vue";
+import JavaVue from "./Java.vue";
 export default {
   name: "HomeComponents",
   components: {
-    ChildVue,
+    ReactVue,
+    NodeVue,
+    JavaVue,
+  },
+
+  data() {
+    return {
+      tab: "JavaVue",
+    };
   },
 };
 </script>
